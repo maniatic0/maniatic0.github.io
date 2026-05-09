@@ -26,4 +26,6 @@ Stay tuned for my updated projects, research, and experience.
 
 * [GitHub](https://github.com/maniatic0)
 * [LinkedIn](https://ve.linkedin.com/in/christian-oliveros-69a98311a)
+* [Twitter](https://x.com/CHChistris)
+* [Itch.io](https://maniatico.itch.io/)
 * [Email](mailto:christianol_work@outlook.com)
