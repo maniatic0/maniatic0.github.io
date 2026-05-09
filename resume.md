@@ -8,14 +8,27 @@ title: Résumé
         <h1 class="text-4xl font-extrabold text-white mb-2">Résumé</h1>
         <p class="text-slate-400">Professional experience and technical skills.</p>
     </div>
-    <a href="/assets/Christian_CV.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-bold rounded-xl transition-all shadow-lg shadow-sky-500/20 group">
-        <span class="mr-2">📄</span> Download CV (PDF)
-        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-    </a>
+    <div class="flex gap-4">
+        <a href="/assets/Christian_CV.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-bold rounded-xl transition-all shadow-lg shadow-sky-500/20 group">
+            <span class="mr-2">📄</span> Download CV (PDF)
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+    </div>
 </div>
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
     <div class="lg:col-span-2 space-y-12">
+        <!-- PDF Embed Section -->
+        <section class="glass-card rounded-2xl overflow-hidden border border-slate-700/50">
+            <div class="bg-slate-800/50 px-6 py-3 border-b border-slate-700/50 flex justify-between items-center">
+                <span classs="text-sm font-semibold text-slate-400 uppercase tracking-widest">Document Preview</span>
+                <span class="text-xs text-sky-400">PDF Format</span>
+            </div>
+            <div class="aspect-[1/1.414] w-full">
+                <iframe src="/assets/Christian_CV.pdf#toolbar=0" width="100%" height="100%" class="rounded-b-2xl" style="border: none;"></iframe>
+            </div>
+        </section>
+
         <section>
             <h2 class="text-2xl font-bold text-sky-400 mb-6 flex items-center">
                 <span class="mr-3">💻</span> Experiences
