@@ -11,6 +11,14 @@ Stay tuned for my updated projects, research, and experience.
 
 ---
 
+### Quick Links
+
+* [**Résumé**](resume.html)
+* [**Portfolio**](portfolio.html)
+* [**Games**](games.html)
+
+---
+
 ### Connect with me:
 
 * [GitHub](https://github.com/maniatic0)
