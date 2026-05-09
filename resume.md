@@ -1,9 +1,12 @@
 ---
 layout: default
 title: Résumé
----
 
 # Résumé
+
+## CV – Résumé
+
+[Download my CV (PDF)](/assets/Christian_CV.pdf)
 
 ## Experiences
 
@@ -39,7 +42,7 @@ title: Résumé
 
 #### Languages
 - Spanish (Native Language)
-- English (109/120 TOFL Internet Based Test)
+- English ( 109/120 TOFL Internet Based Test)
 
 #### Publications
 - [Temporal Anti-Aliasing Master](https://github.com/maniatic0/Christian-TRAA) Thesis published on Lund University [Students Papers](http://lup.lub.lu.se/student-papers/record/8971248).
