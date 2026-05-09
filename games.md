@@ -7,11 +7,11 @@ title: Games Portfolio
 
 ## University
 
-- Contributed a faster memory copy using AVX to Prof. Jacco’s Voxels C++ Engine. [[Contribution](https://github.com/jbikker/WrldTmpl8/blob/3f001bef28e66eb9da7d33543f31b8e1859843a9/template/world.h#L266), [Summary here](https://oliveroschristian.wordpress.com/2022/01/31/faster-memory-copy-using-avx/), [Readme](https://github.com/jbikker/WrldTmpl8)]
-- Wall the Mole tech demo, made in UE4 with [uCrowds](https://www.ucrowds.com/) technology. [[Summary here](https://oliveroschristian.wordpress.com/2022/02/02/wall-the-mole-tech-demo/), Under NDA]
-- CPU [Ray Tracer in C++](https://github.com/maniatic0/Advanced-Graphics-Project/tree/main/lib/RenderCore_Project) built for the Utrecht’s University [Advanced Graphics](https://www.cs.uu.nl/docs/vakken/magr/2020-2021/index.html) course. [[Summary here](https://oliveroschristian.wordpress.com/2022/02/03/real-time-cpu-ray-tracer-in-c/), [Code](https://github.com/maniatic0/Advanced-Graphics-Project/tree/main/lib/RenderCore_Project)]
-- VisualizAR, a math learning app using Unity and AR. [[Summary here](https://oliveroschristian.wordpress.com/2022/02/05/visualizar-ar-math-learning-app/), [Code](https://github.com/maniatic0/VisualizAR)]
-- [Temporal Anti-Aliasing](https://github.com/maniatic0/Christian-TRAA) Master Thesis published on Lund University [Students Papers](http://lup.lub.lu.se/student-papers/record/8971248).
+{% for post in site.posts %}
+{% if post.title contains 'uCrowds' or post.title contains 'Ray Tracer' or post.title contains 'VisualizAR' or post.title contains 'Wall the Mole' or post.title contains 'Temporal Anti-Aliasing' %}
+- [{{ post.title }}]({{ post.url }})
+{% endif %}
+{% endfor %}
 
 ## Personal Projects/Collaborations/Game Jams
 
