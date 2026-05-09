@@ -3,107 +3,62 @@ layout: default
 title: {{ page.title }}
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | Christian Oliveros</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* Slate 900 */
-            background-image: url('https://img.itch.zone/aW1hZ2UyL3VzZXIvNjYzMDAvMzg3OTczLnBuZw==/original/2MHabA.png');
-            background-attachment: fixed;
-            background-size: cover;
-            color: #f1f5f9; /* Slate 100 */
-        }
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7); /* Slate 800 with opacity */
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .accent-text {
-            color: #38bdf8; /* Sky 400 */
-        }
-        /* Custom Markdown Styling for the container */
-        .prose h1 { @apply text-4xl font-bold mb-6 text-white; }
-        .prose h2 { @apply text-2xl font-semibold mt-8 mb-4 text-sky-400; }
-        .prose h3 { @apply text-xl font-semibold mt-6 mb-3 text-sky-300; }
-        .prose h4 { @apply text-lg font-semibold mt-4 mb-2 text-sky-200; }
-        .prose p { @apply mb-4 leading-relaxed; }
-        .prose ul { @apply list-disc ml-6 mb-4; }
-        .prose li { @apply mb-1; }
-        .prose a { @apply text-sky-400 hover:text-sky-300 underline transition-colors; }
-        .prose code { @apply bg-slate-800 px-1 py-0.5 rounded text-pink-400 font-mono text-sm; }
-        .prose pre { @apply bg-slate-950 p-4 rounded-lg my-4 overflow-x-auto border border-slate-800; }
-        .prose pre code { @apply bg-transparent p-0 text-sky-300; }
-        .prose hr { @apply my-8 border-slate-700; }
-        .prose blockquote { @apply border-l-4 border-sky-500 pl-4 italic my-4 text-slate-400; }
-    </style>
-</head>
-<body class="min-h-screen antialiased">
+{% if page.title == "Home" %}
+<div class="text-center py-12">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
+        Welcome to my <span class="text-sky-400">portfolio</span>!
+    </h1>
+    <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-12">
+        This site is currently being migrated from WordPress to GitHub Pages using <strong>Jekyll</strong>. 
+        Stay tuned for my updated projects, research, and experience.
+    </p>
 
-    <nav class="sticky top-0 z-50 glass-card border-b border-slate-700/50 py-4 mb-8">
-        <div class="max-w-4xl mx-auto px-6 flex justify-between items-center">
-            <a href="/" class="text-xl font-bold tracking-tight hover:text-sky-400 transition-colors">
-                Christian<span class="accent-text">Oliveros</span>
-            </a>
-            <div class="space-x-6 text-sm font-medium text-slate-300">
-                <a href="/resume.html" class="hover:text-sky-400 transition-colors">Résumé</a>
-                <a href="/portfolio.html" class="hover:text-sky-400 transition-colors">Portfolio</a>
-                <a href="/games.html" class="hover:text-sky-400 transition-colors">Games</a>
-            </div>
-        </div>
-    </nav>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4">
+        <a href="/resume.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-1 text-left">
+            <div class="text-sky-400 text-3xl mb-4">📄</div>
+            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Résumé</h3>
+            <p class="text-slate-400 text-sm">Professional experience, skills, and education.</p>
+        </a>
+        <a href="/portfolio.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-1 text-left">
+            <div class="text-sky-400 text-3xl mb-4">🚀</div>
+            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Portfolio Articles</h3>
+            <p class="text-slate-400 text-sm">Technical deep-dives and research papers.</p>
+        </a>
+        <a href="/games.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-1 text-left">
+            <div class="text-sky-400 text-3xl mb-4">🎮</div>
+            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Games Portfolio</h3>
+            <p class="text-slate-400 text-sm">University and personal game projects.</p>
+        </a>
+        <a href="/guias-y-resumenes.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-1 text-left">
+            <div class="text-sky-400 text-3xl mb-4">📚</div>
+            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Guías y Resúmenes</h3>
+            <p class="text-slate-400 text-sm">Computer Science study guides.</p>
+        </a>
+        <a href="/mate-2.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-1 text-left">
+            <div class="text-sky-400 text-3xl mb-4">📐</div>
+            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Mate 2</h3>
+            <p class="text-slate-400 text-sm">Math recommendations and tutorials.</p>
+        </a>
+        <a href="/el-arte-de-los-videojuegos.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-1 text-left">
+            <div class="text-sky-400 text-3xl mb-4">🎨</div>
+            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">El Arte de los Videojuegos</h3>
+            <p class="text-slate-400 text-sm">My high school research project.</p>
+        </a>
+    </div>
+</div>
+{% endif %}
 
-    <main class="max-w-4xl mx-auto px-6 pb-20">
-        <div class="glass-card rounded-2xl p-8 md:p-12 shadow-2xl">
-            <article class="prose prose-invert max-w-none">
-                {% if page.title == "Home" %}
-                    <div class="text-center py-10">
-                        <h1 class="text-5xl font-extrabold text-white mb-4">Welcome.</h1>
-                        <p class="text-xl text-slate-400 mb-10">Computer Scientist | Game & Media Technology Enthusiast</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-                            <a href="/resume.html" class="glass-card p-6 rounded-xl hover:border-sky-500/50 transition-all group">
-                                <h3 class="text-sky-400 font-bold text-lg group-hover:translate-x-1 transition-transform">📄 Résumé</h3>
-                                <p class="text-sm text-slate[400]">Professional experience and skills.</p>
-                            </a>
-                            <a href="/portfolio.html" class="glass-card p-6 rounded-xl hover:border-sky-500/50 transition-all group">
-                                <h3 class="text-sky-400 font-bold text-lg group-hover:translate-x-1 transition-transform">🚀 Portfolio Articles</h3>
-                                <p class="text-sm text-slate[400]">Technical deep-dives and research.</p>
-                            </a>
-                            <a href="/games.html" class="glass-card p-6 rounded-xl hover:border-sky-500/50 transition-all group">
-                                <h3 class="text-sky-400 font-bold text-lg group-hover:translate-x-1 transition-transform">🎮 Games Portfolio</h3>
-                                <p class="text-sm text-slate[400]">University and personal game projects.</p>
-                            </a>
-                            <a href="/guias-y-resumenes.html" class="glass-card p-6 rounded-xl hover:border-sky-500/50 transition-all group">
-                                <h3 class="text-sky-400 font-bold text-lg group-hover:translate-x-1 transition-transform">📚 Guías y Resúmenes</h3>
-                                <p class="text-sm text-slate[400]">Computer Science study guides.</p>
-                            </a>
-                        </div>
-                    </div>
-                {% else %}
-                    {{ content }}
-                {% endif %}
-            </article>
-        </div>
-    </main>
+{% if page.title != "Home" %}
+<div class="animate-in fade-in duration-700">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tight">
+        {{ page.title }}
+    </h1>
+{% endif %}
 
-    <footer class="max-w-4xl mx-auto px-6 pb-10 text-center text-slate-500 text-sm">
-        <div class="flex justify-center space-x-6 mb-4">
-            <a href="{{ site.github }}" class="hover:text-sky-400 transition-colors">GitHub</a>
-            <a href="{{ site.linkedin }}" class="hover:text-sky-400 transition-colors">LinkedIn</a>
-            <a href="mailto:{{ site.email }}" class="hover:text-sky-400 transition-colors">Email</a>
-        </div>
-        <p>&copy; {{ "now" | date: "%Y" }} {{ site.title }}</p>
-    </footer>
+<div class="prose prose-invert prose-slate max-w-none">
+    {{ content }}
+</div>
 
-</body>
-</html>
+{% if page.title != "Home" %}
+</div>
+{% endif %}
