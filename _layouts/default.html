@@ -1,9 +1,14 @@
-<!-- Triggering deployment -->
+---
+layout: default
+title: Home
+---
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christian Oliveros | Portfolio</title>
+    <title>{{ page.title }} | Christian Oliveros</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -42,25 +47,16 @@
 </head>
 <body>
     <header>
-        <h1>Christian Oliveros</h1>
-        <p class="subtitle">Computer Scientist | Game & Media Technology Enthusiast</p>
+        <h1>{{ site.title }}</h1>
+        <p class="subtitle">{{ site.description }}</p>
     </header>
 
     <div class="container">
-        <h2>Welcome to my new portfolio!</h2>
-        <p>This site is currently being migrated from WordPress to GitHub Pages.</p>
-        <p>Stay tuned for my updated projects, research, and experience.</p>
-        <hr>
-        <p><strong>Connect with me:</strong></p>
-        <ul>
-            <li><a href="https://github.com/maniatic0">GitHub</a></li>
-            <li><a href="https://ve.linkedin.com/in/christian-oliveros-69a98311a">LinkedIn</a></li>
-            <li><a href="mailto:christianol_work@outlook.com">Email</a></li>
-        </ul>
+        {{ content }}
     </div>
 
     <footer>
-        <p>&copy; 2026 Christian Oliveros</p>
+        <p>&copy; {{ "now" | date: "%Y" }} {{ site.title }}</p>
     </footer>
 </body>
 </html>
