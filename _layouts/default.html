@@ -234,36 +234,24 @@ title: {{ page.title }}
         </main>
 
         <!-- Footer -->
-        <footer class="relative z-10 text-center text-slate-500 text-sm">
-            <div class="max-w-6xl mx-auto mb-12 px-4">
-                <div class="glass-card p-8 rounded-3xl">
-                    <h3 class="text-white font-bold text-lg mb-6">Connect with me</h3>
-                    <div class="flex flex-wrap justify-center gap-8 text-slate-400">
-                        <a href="https://www.linkedin.com/in/christian-oliveros-programmer/"
-                            class="hover:text-sky-400 transition-colors flex items-center gap-2">
-                            <span class="font-medium">LinkedIn</span>
+<footer class="relative z-10 text-center text-slate-500 text-sm">
+        <div class="max-w-6xl mx-auto mb-12 px-4">
+            <div class="glass-card p-8 rounded-3xl">
+                <h3 class="text-white font-bold text-lg mb-6">Connect with me</h3>
+                <div class="flex flex-wrap justify-center gap-8 text-slate-400">
+                    {% for key, social in site.socials %}
+                        <a href="{{ social.url }}" class="hover:text-sky-400 transition-colors flex items-center gap-2">
+                            {% if social.icon %}
+                                <i class="{{ social.icon }}"></i>
+                            {% endif %}
+                            <span class="font-medium">{{ social.label }}</span>
                         </a>
-                        <a href="mailto:christianol_work@outlook.com"
-                            class="hover:text-sky-400 transition-colors flex items-center gap-2">
-                            <span class="font-medium">Email</span>
-                        </a>
-                        <a href="https://github.com/maniatic0"
-                            class="hover:text-sky-400 transition-colors flex items-center gap-2">
-                            <span class="font-medium">GitHub</span>
-                        </a>
-                        <a href="https://maniatico.itch.io/"
-                            class="hover:text-sky-400 transition-colors flex items-center gap-2">
-                            <span class="font-medium">Itch.io</span>
-                        </a>
-                        <a href="https://x.com/CHChistris"
-                            class="hover:text-sky-400 transition-colors flex items-center gap-2">
-                            <span class="font-medium">Twitter</span>
-                        </a>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
-            <p>&copy; {{ "now" | date: "%Y" }} Christian. Built with Jekyll & Tailwind CSS.</p>
-        </footer>
+        </div>
+        <p>&copy; {{ "now" | date: "%Y" }} Christian. Built with Jekyll & Tailwind CSS.</p>
+    </footer>
     </div>
 
 </body>

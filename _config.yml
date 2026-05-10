@@ -5,7 +5,24 @@ baseurl: ""
 url: "https://maniatic0.github.io"
 
 # Social Links
-twitter: "https://x.com/CHChistris"
-linkedin: "https://www.linkedin.com/in/christian-oliveros-programmer/"
-github: "https://github.com/maniatic0"
-itchio: "https://maniatico.itch.io/"
+socials:
+  linkedin:
+    url: "https://www.linkedin.com/in/christian-oliveros-programmer/"
+    icon: "fab fa-linkedin"
+    label: "LinkedIn"
+  github:
+    url: "https://github.com/maniatic0"
+    icon: "fab fa-github"
+    label: "GitHub"
+  twitter:
+    url: "https://x.com/CHChistris"
+    icon: "fab fa-x-twitter"
+    label: "Twitter"
+  itchio:
+    url: "https://maniatico.itch.io/"
+    icon: "fab fa-itchio"
+    label: "Itch.io"
+  email:
+    url: "mailto:christianol_work@outlook.com"
+    icon: "fas fa-envelope"
+    label: "Email"
