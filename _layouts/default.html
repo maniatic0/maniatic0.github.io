@@ -10,37 +10,18 @@ title: {{ page.title }}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | Christian's Portfolio</title>
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/assets/css/output.css">
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+    
     <!-- Embla Carousel CDN -->
     <script src="https://unpkg.com/embla-carousel@8.0.0/embla-carousel.umd.js"></script>
     
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        sky: {
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                        }
-                    },
-                    backgroundImage: {
-                        'itch-pattern': "url('https://img.itch.zone/aW1hZ2UyL3VzZXIvNjYzMDAvMzg3OTczLnBuZw==/original/2MHabA.png')",
-                    }
-                }
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
             const emblaNode = document.querySelector('.embla');
             if (emblaNode) {
@@ -52,6 +33,7 @@ title: {{ page.title }}
             }
         });
     </script>
+
 
     <style type="text/css">
         body {
