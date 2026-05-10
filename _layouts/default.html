@@ -5,28 +5,29 @@ title: {{ page.title }}
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | Christian's Portfolio</title>
-    
+
     <!-- Icons -->
     <link rel="icon" type="image/x-icon" href="/assets/images/icons/favicon.ico">
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icons/icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/icons/icon-512.png">
     <link rel="apple-touch-icon" href="/assets/images/icons/icon-192.png">
-    
+
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="/assets/css/output.css">
-    
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Embla Carousel CDN -->
     <script src="https://unpkg.com/embla-carousel@8.0.0/embla-carousel.umd.js"></script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const emblaNode = document.querySelector('.embla');
@@ -63,7 +64,10 @@ title: {{ page.title }}
             color: #cbd5e1;
         }
 
-        .prose h1, .prose h2, .prose h3, .prose h4 {
+        .prose h1,
+        .prose h2,
+        .prose h3,
+        .prose h4 {
             color: #f1f5f9;
         }
 
@@ -90,14 +94,17 @@ title: {{ page.title }}
 
         /* Hide scrollbar for IE, Edge and Firefox */
         .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
         }
     </style>
 </head>
+
 <body class="min-h-screen font-sans antialiased">
 
-        <div class="relative min-h-screen w-full">
+    <div class="relative min-h-screen w-full">
         <!-- Background Overlay for better readability -->
         <div class="absolute inset-0 bg-slate-950/60 z-0"></div>
 
@@ -109,69 +116,104 @@ title: {{ page.title }}
                     Welcome to my <span class="text-sky-400">portfolio</span>!
                 </h1>
                 <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-16 leading-relaxed">
-                    This site is currently being migrated from WordPress to GitHub Pages using <strong class="text-sky-400">Jekyll</strong>. 
+                    This site is currently being migrated from WordPress to GitHub Pages using <strong
+                        class="text-sky-400">Jekyll</strong>.
                     Stay tuned for my updated projects, research, and experience.
                 </p>
-                
-<div class="embla overflow-visible max-w-full md:max-w-6xl mx-auto pt-32 pb-12">
+
+                <div class="overflow-visible py-12">
+                    <div class="embla overflow-hidden max-w-full md:max-w-6xl mx-auto pt-24 pb-12">
                         <div class="embla__container flex gap-6">
                             <div class="embla__slide flex-shrink-0 w-72 md:w-80">
-                                <a href="/resume.html" class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">📄</div>
+                                <a href="/resume.html"
+                                    class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
+                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">📄
+                                    </div>
                                     <div>
-                                        <h3 class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">Résumé</h3>
-                                        <p class="text-slate-400 text-sm line-clamp-2">Professional experience, skills, and education.</p>
+                                        <h3
+                                            class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">
+                                            Résumé</h3>
+                                        <p class="text-slate-400 text-sm line-clamp-2">Professional experience, skills,
+                                            and
+                                            education.</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="embla__slide flex-shrink-0 w-72 md:w-80">
-                                <a href="/portfolio.html" class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">🚀</div>
+                                <a href="/portfolio.html"
+                                    class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
+                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">🚀
+                                    </div>
                                     <div>
-                                        <h3 class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">Portfolio Articles</h3>
-                                        <p class="text-slate-400 text-sm line-clamp-2">Technical deep-dives and research papers.</p>
+                                        <h3
+                                            class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">
+                                            Portfolio Articles</h3>
+                                        <p class="text-slate-400 text-sm line-clamp-2">Technical deep-dives and research
+                                            papers.</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="embla__slide flex-shrink-0 w-72 md:w-80">
-                                <a href="/games.html" class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">🎮</div>
+                                <a href="/games.html"
+                                    class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
+                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">🎮
+                                    </div>
                                     <div>
-                                        <h3 class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">Games Portfolio</h3>
-                                        <p class="text-slate-400 text-sm line-clamp-2">University and personal game projects.</p>
+                                        <h3
+                                            class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">
+                                            Games Portfolio</h3>
+                                        <p class="text-slate-400 text-sm line-clamp-2">University and personal game
+                                            projects.</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="embla__slide flex-shrink-0 w-72 md:w-80">
-                                <a href="/2022/01/01/guias-y-resumenes.html" class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">📚</div>
+                                <a href="/2022/01/01/guias-y-resumenes.html"
+                                    class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
+                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">📚
+                                    </div>
                                     <div>
-                                        <h3 class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">Guías y Resúmenes</h3>
-                                        <p class="text-slate-400 text-sm line-clamp-2">Computer Science study guides.</p>
+                                        <h3
+                                            class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">
+                                            Guías y Resúmenes</h3>
+                                        <p class="text-slate-400 text-sm line-clamp-2">Computer Science study guides.
+                                        </p>
                                     </div>
                                 </a>
                             </div>
                             <div class="embla__slide flex-shrink-0 w-72 md:w-80">
-                                <a href="/2022/01/01/mate-2.html" class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">📐</div>
+                                <a href="/2022/01/01/mate-2.html"
+                                    class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
+                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">📐
+                                    </div>
                                     <div>
-                                        <h3 class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">Mate 2</h3>
-                                        <p class="text-slate-400 text-sm line-clamp-2">Math recommendations and tutorials.</p>
+                                        <h3
+                                            class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">
+                                            Mate 2</h3>
+                                        <p class="text-slate-400 text-sm line-clamp-2">Math recommendations and
+                                            tutorials.
+                                        </p>
                                     </div>
                                 </a>
                             </div>
                             <div class="embla__slide flex-shrink-0 w-72 md:w-80">
-                                <a href="/2013/01/01/el-arte-de-los-videojuegos.html" class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">🎨</div>
+                                <a href="/2013/01/01/el-arte-de-los-videojuegos.html"
+                                    class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
+                                    <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">🎨
+                                    </div>
                                     <div>
-                                        <h3 class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">El Arte de los Videojuegos</h3>
-                                        <p class="text-slate-400 text-sm line-clamp-2">My high school research project.</p>
+                                        <h3
+                                            class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">
+                                            El Arte de los Videojuegos</h3>
+                                        <p class="text-slate-400 text-sm line-clamp-2">My high school research project.
+                                        </p>
                                     </div>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
             {% if page.title != "Home" %}
             <!-- Content Pages Header -->
@@ -199,19 +241,24 @@ title: {{ page.title }}
                 <div class="glass-card p-8 rounded-3xl">
                     <h3 class="text-white font-bold text-lg mb-6">Connect with me</h3>
                     <div class="flex flex-wrap justify-center gap-8 text-slate-400">
-                        <a href="https://www.linkedin.com/in/christian-oliveros-programmer/" class="hover:text-sky-400 transition-colors flex items-center gap-2">
+                        <a href="https://www.linkedin.com/in/christian-oliveros-programmer/"
+                            class="hover:text-sky-400 transition-colors flex items-center gap-2">
                             <span class="font-medium">LinkedIn</span>
                         </a>
-                        <a href="mailto:christianol_work@outlook.com" class="hover:text-sky-400 transition-colors flex items-center gap-2">
+                        <a href="mailto:christianol_work@outlook.com"
+                            class="hover:text-sky-400 transition-colors flex items-center gap-2">
                             <span class="font-medium">Email</span>
                         </a>
-                        <a href="https://github.com/maniatic0" class="hover:text-sky-400 transition-colors flex items-center gap-2">
+                        <a href="https://github.com/maniatic0"
+                            class="hover:text-sky-400 transition-colors flex items-center gap-2">
                             <span class="font-medium">GitHub</span>
                         </a>
-                        <a href="https://maniatico.itch.io/" class="hover:text-sky-400 transition-colors flex items-center gap-2">
+                        <a href="https://maniatico.itch.io/"
+                            class="hover:text-sky-400 transition-colors flex items-center gap-2">
                             <span class="font-medium">Itch.io</span>
                         </a>
-                        <a href="https://x.com/CHChistris" class="hover:text-sky-400 transition-colors flex items-center gap-2">
+                        <a href="https://x.com/CHChistris"
+                            class="hover:text-sky-400 transition-colors flex items-center gap-2">
                             <span class="font-medium">Twitter</span>
                         </a>
                     </div>
@@ -222,4 +269,5 @@ title: {{ page.title }}
     </div>
 
 </body>
+
 </html>
