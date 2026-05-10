@@ -16,9 +16,9 @@ Stay tuned for my updated projects, research, and experience.
 * [**Résumé**](resume.html)
 * [**Portfolio Articles**](portfolio.html)
 * [**Games Portfolio**](games.html)
-* [**Guías y Resúmenes**](guias-y-resumenes.html)
-* [**Mate 2**](mate-2.html)
-* [**El Arte de Los Videojuegos**](el-arte-de-los-videojuegos.html)
+* [**Guías y Resúmenes**](_posts/2022-01-01-guias-y-resumenes.md)
+* [**Mate 2**](_posts/2022-01-01-mate-2.md)
+* [**El Arte de Los Videojuegos**](_posts/2013-01-01-el-arte-de-los-videojuegos.md)
 
 ---
 
