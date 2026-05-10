@@ -113,7 +113,7 @@ title: Résumé
                 <div class="border-l-2 border-sky-500/30 pl-4">
                     <h3 class="font-bold text-white">Msc. Game & Media Tech</h3>
                     <p class="text-sm text-sky-400">Utrecht University</p>
-                    <p class="text-xs text-slate-400 mt-1">2020 - Present</p>
+                    <p class="text-xs text-slate-400 mt-1">2020 - 2022</p>
                     <p class="text-sm text-slate-300 mt-2 italic">GPA: 8.73/10</p>
                 </div>
                 <div class="border-l-2 border-sky-500/30 pl-4">
