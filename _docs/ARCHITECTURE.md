@@ -15,8 +15,11 @@ The website is a **Static Site** powered by the **Jekyll** static site generator
 ### Directory Structure
 - `/assets/`: Contains static assets like images and the PDF CV.
 - `/assets/images/`: Stores design-related imagery (e.g., background textures).
+- `/assets/images/icons/`: Stores brand and favicon icons.
 - `/_layouts/`: Contains the HTML templates (e.g., `default.html`) that define the site's skeleton.
 - `/_posts/`: The "database" of the site, containing all articles and guides in Markdown format.
+- `/_scripts/`: Contains internal build and configuration scripts (e.g., Tailwind configuration and build automation).
+- `/_build-assets/`: Contains source files for the build process (e.g., Tailwind source CSS).
 - `_config.yml`: The global configuration file for site metadata and social links.
 
 ---
@@ -49,11 +52,18 @@ Instead of manual HTML editing, content is managed via **Markdown**. This allows
 - Easy version control.
 - Separation of content (Markdown) from presentation (HTML/CSS).
 
+### Build & Styling (Tailwind CSS)
+The site uses a local **Tailwind CSS CLI** build process to ensure performance and prevent production warnings.
+- **Source CSS**: Located in `_build-assets/input.css`.
+- **Configuration**: Managed via `_scripts/tailwind.config.js`.
+- **Automation**: The `./_scripts/build-css.sh` script automates the compilation, minification, and directory management.
+
 ### Deployment Workflow
 1. **Local Edit**: Changes are made to `.md` or `.html` files.
-2. **Git Commit**: Changes are committed with descriptive messages.
-3. **Git Push**: The code is pushed to GitHub.
-4. **Automated Build**: GitHub Actions detects the push, runs Jekyll, and publishes the static files.
+2. **CSS Build**: Run `./_scripts/build-css.sh` to generate the production Tailwind CSS.
+3. **Git Commit**: Changes are committed with descriptive messages.
+4. **Git Push**: The code is pushed to GitHub.
+5. **Automated Build**: GitHub Actions detects the push, runs Jekyll, and publishes the static files.
 
 ---
 
