@@ -80,6 +80,17 @@ title: {{ page.title }}
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-duration: 300ms;
         }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="min-h-screen font-sans antialiased">
@@ -101,40 +112,41 @@ title: {{ page.title }}
                     Stay tuned for my updated projects, research, and experience.
                 </p>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    <a href="/resume.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">📄</div>
-                        <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Résumé</h3>
-                        <p class="text-slate-400 text-sm">Professional experience, skills, and education.</p>
-                    </a>
-                    <a href="/portfolio.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🚀</div>
-                        <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Portfolio Articles</h3>
-                        <p class="text-slate-400 text-sm">Technical deep-dives and research papers.</p>
-                    </a>
-                    <a href="/games.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🎮</div>
-                        <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Games Portfolio</h3>
-                        <p class="text-slate-400 text-sm">University and personal game projects.</p>
-                    </a>
-                    <a href="/2022/01/01/guias-y-resumenes.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">📚</div>
-                        <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Guías y Resúmenes</h3>
-                        <p class="text-slate-400 text-sm">Computer Science study guides.</p>
-                    </a>
-                    <a href="/2022/01/01/mate-2.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">📐</div>
-                        <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Mate 2</h3>
-                        <p class="text-slate-400 text-sm">Math recommendations and tutorials.</p>
-                    </a>
-                    <a href="/2013/01/01/el-arte-de-los-videojuegos.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
-                        <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🎨</div>
-                        <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">El Arte de los Videojuegos</h3>
-                        <p class="text-slate-400 text-sm">My high school research project.</p>
-                    </a>
-                </div>
+                    <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 max-w-6xl mx-auto pb-8 no-scrollbar">
+                        <a href="/resume.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left flex-shrink-0 snap-center w-72 md:w-80">
+                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">📄</div>
+                            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Résumé</h3>
+                            <p class="text-slate-400 text-sm">Professional experience, skills, and education.</p>
+                        </a>
+                        <a href="/portfolio.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left flex-shrink-0 snap-center w-72 md:w-80">
+                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🚀</div>
+                            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Portfolio Articles</h3>
+                            <p class="text-slate-400 text-sm">Technical deep-dives and research papers.</p>
+                        </a>
+                        <a href="/games.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left flex-shrink-0 snap-center w-72 md:w-80">
+                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🎮</div>
+                            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Games Portfolio</h3>
+                            <p class="text-slate-400 text-sm">University and personal game projects.</p>
+                        </a>
+                        <a href="/2022/01/01/guias-y-resumenes.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left flex-shrink-0 snap-center w-72 md:w-80">
+                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">📚</div>
+                            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Guías y Resúmenes</h3>
+                            <p class="text-slate-400 text-sm">Computer Science study guides.</p>
+                        </a>
+                        <a href="/2022/01/01/mate-2.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left flex-shrink-0 snap-center w-72 md:w-80">
+                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">📐</div>
+                            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">Mate 2</h3>
+                            <p class="text-slate-400 text-sm">Math recommendations and tutorials.</p>
+                        </a>
+                        <a href="/2013/01/01/el-arte-de-los-videojuegos.html" class="group glass-card p-8 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left flex-shrink-0 snap-center w-72 md:w-80">
+                            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🎨</div>
+                            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-sky-400 transition-colors">El Arte de los Videojuegos</h3>
+                            <p class="text-slate-400 text-sm">My high school research project.</p>
+                        </a>
+                    </div>
             </div>
             {% endif %}
+
 
             {% if page.title != "Home" %}
             <!-- Content Pages Header -->
