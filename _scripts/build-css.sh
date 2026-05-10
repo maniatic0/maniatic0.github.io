@@ -13,9 +13,10 @@ echo "🚀 Starting Tailwind CSS build process..."
 # 2. Run the Tailwind build command
 # -i: input file (now in _build-assets)
 # -o: output file (in assets/css)
+# --config: explicitly point to the config file in _scripts/
 # --minify: optimize for production
 echo "🔨 Building CSS..."
-./node_modules/.bin/tailwindcss -i ./_build-assets/input.css -o ./assets/css/output.css --minify
+./node_modules/.bin/tailwindcss -i ./_build-assets/input.css -o ./assets/css/output.css --config ./_scripts/tailwind.config.js --minify
 
 # 3. Check if the output file was created
 if [ -f "./assets/css/output.css" ]; then
