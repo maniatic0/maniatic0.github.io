@@ -239,7 +239,7 @@ title: {{ page.title }}
                 <div class="glass-card p-8 rounded-3xl">
                     <h3 class="text-white font-bold text-lg mb-6">Connect with me</h3>
                     <div class="flex flex-wrap justify-center gap-8 text-slate-400">
-                        {% for social in site.socials %}
+                        {% for social in page.socials %}
                         <a href="{{ social.value.url }}" class="hover:text-sky-400 transition-colors flex items-center gap-2">
                             {% if social.value.icon %}
                             <i class="{{ social.value.icon }}"></i>
