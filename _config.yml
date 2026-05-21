@@ -20,7 +20,7 @@ socials:
     label: "Twitter"
   itchio:
     url: "https://maniatico.itch.io/"
-    icon: "fab fa-itchio"
+    icon: "fas fa-gamepad"
     label: "Itch.io"
   email:
     url: "mailto:christianol_work@outlook.com"
