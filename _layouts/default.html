@@ -115,14 +115,31 @@ title: {{ page.title }}
 
             <!-- Home Page Hero Section -->
             <div class="text-center">
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
-                    Welcome to my <span class="text-sky-400">portfolio</span>!
+                <!-- Profile Photo -->
+                <div class="mb-6">
+                    <img src="/assets/images/profile.jpg" alt="Christian Oliveros"
+                        class="w-8 h-8 md:w-10 md:h-10 rounded-full border-4 border-sky-400/50 shadow-lg shadow-sky-500/20 object-cover mx-auto">
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-2 tracking-tight">
+                    <a href="/" class="text-white hover:text-sky-400 transition-colors">
+                        Christian <span class="text-sky-400">Oliveros</span>
+                    </a>
                 </h1>
-                <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-16 leading-relaxed">
-                    This site is currently being migrated from WordPress to GitHub Pages using <strong
-                        class="text-sky-400">Jekyll</strong>.
-                    Stay tuned for my updated projects, research, and experience.
+                <p class="text-lg md:text-xl font-semibold text-sky-300/80 mb-4 tracking-wide">
+                    Computer Scientist | Game Developer | Engine Programmer
                 </p>
+                <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-8 leading-relaxed">
+                    Always enthusiastic about learning new things and with a lot of curiosity, and a passion for videogames and the technology used to make them. With a love for <strong class="text-sky-400">optimization</strong> and <strong class="text-sky-400">performance</strong>.
+                </p>
+
+                <!-- Hero Social Links -->
+                <div class="flex flex-wrap justify-center gap-6 text-slate-400 mt-8 mb-8">
+                    {% for social in site.socials %}
+                    <a href="{{ social[1].url }}" class="hover:text-sky-400 transition-colors text-2xl">
+                        <i class="{{ social[1].icon }}"></i>
+                    </a>
+                    {% endfor %}
+                </div>
 
                 <div class="embla overflow-hidden max-w-full md:max-w-6xl mx-auto pt-24 py-12">
                     <div class="embla__container flex gap-6">
