@@ -13,21 +13,38 @@ Use this skill whenever you need to visually inspect or review the portfolio web
 |------|----------|---------|
 | Vision script | `~/vision_check.py` | Sends images to local Gemma 4 Vision model |
 | Chrome MCP | configured in global opencode config | Browser automation & screenshots |
-| Screenshot cache | `.chrome-screenshots/` (git-ignored) | Store screenshots locally |
+| Jekyll launcher | `_scripts/serve.sh` | Starts/restarts the Jekyll dev server |
+| CSS builder | `build-css.sh` | Rebuilds Tailwind CSS from source |
 
 ## Prerequisites
 
-- **Jekyll server running** on `http://localhost:4000`. If not running, start it:
+- **Jekyll server running** on `http://localhost:4000`. Start/restart it:
   ```bash
-  nohup jekyll serve --host 0.0.0.0 --port 4000 > /tmp/jekyll.log 2>&1 &
-  sleep 3
+  bash _scripts/serve.sh
   ```
+  This script kills any existing server, clears the build cache, starts Jekyll, and waits for it to be ready.
 - **Vision model server** running on `http://localhost:8082/v1/chat/completions`
 - **Chrome DevTools MCP** connected (configured globally, should be available)
 
+## Rebuilding CSS
+
+Whenever you add **new Tailwind utility classes** (e.g., `text-justify`, `w-18`) to the layout, you must rebuild the CSS or the class won't have any effect:
+
+```bash
+bash build-css.sh
+```
+
+This compiles `_build-assets/input.css` → `assets/css/output.css` using the config in `_scripts/tailwind.config.js`.
+
 ## Workflow
 
-### Step 1: Navigate & Reload
+### Step 1: Start the Jekyll Server
+
+```bash
+bash _scripts/serve.sh
+```
+
+### Step 2: Navigate & Reload
 
 ```
 chrome-devtools_navigate_page(type="reload", ignoreCache=true)
@@ -35,7 +52,7 @@ chrome-devtools_navigate_page(type="reload", ignoreCache=true)
 
 Always reload with `ignoreCache=true` to ensure the latest build is shown.
 
-### Step 2: Take Screenshot
+### Step 3: Take Screenshot
 
 ```
 chrome-devtools_take_screenshot(format="jpeg", quality=85, filePath="/tmp/portfolio-review.jpg")
@@ -43,7 +60,7 @@ chrome-devtools_take_screenshot(format="jpeg", quality=85, filePath="/tmp/portfo
 
 Use `jpeg` format for smaller files. Save to `/tmp/` (never track these in git). For full-page reviews, add `fullPage=true`.
 
-### Step 3: Analyze with Vision Model
+### Step 4: Analyze with Vision Model
 
 ```bash
 python3 ~/vision_check.py /tmp/portfolio-review.jpg "Your detailed prompt here"
@@ -57,21 +74,24 @@ python3 ~/vision_check.py /tmp/portfolio-review.jpg "Your detailed prompt here"
 
 ## Common Tasks
 
-### After making CSS/layout changes
-1. Reload the page (ignore cache)
-2. Take a full-page screenshot
-3. Prompt the vision model to review the changed area specifically
+### After making layout changes (HTML/CSS classes)
+1. If you added new Tailwind classes, rebuild CSS: `bash build-css.sh`
+2. Restart Jekyll: `bash _scripts/serve.sh`
+3. Reload the page (ignore cache)
+4. Take a full-page screenshot
+5. Prompt the vision model to review the changed area specifically
 
 ### After Jekyll server issues
 1. Check if server is running: `pgrep -f "jekyll"`
-2. If not: `pkill -9 -f "jekyll"` then restart
-3. Wait 3 seconds, verify with: `curl -s --max-time 5 http://localhost:4000/ | head -5`
+2. If not: `bash _scripts/serve.sh` (handles cleanup automatically)
+3. Wait for the "Server is up" message
 
 ### Comparing before/after
 1. Take "before" screenshot, save to `/tmp/before.jpg`
 2. Make changes
-3. Reload, take "after" screenshot, save to `/tmp/after.jpg`
-4. Run vision analysis on both with the same prompt for fair comparison
+3. Rebuild CSS if needed, restart Jekyll, reload page
+4. Take "after" screenshot, save to `/tmp/after.jpg`
+5. Run vision analysis on both with the same prompt for fair comparison
 
 ## Notes
 
@@ -79,3 +99,4 @@ python3 ~/vision_check.py /tmp/portfolio-review.jpg "Your detailed prompt here"
 - Screenshot files in `/tmp/` are not tracked by git — no need to clean up
 - The `.chrome-screenshots/` directory exists in the repo but is git-ignored; use `/tmp/` for transient reviews
 - The vision model (Gemma 4) is good at layout, spacing, and color analysis but may miss small text details
+- Always rebuild CSS (`bash build-css.sh`) after adding new Tailwind classes — the class won't work in the browser until it's compiled into `output.css`
