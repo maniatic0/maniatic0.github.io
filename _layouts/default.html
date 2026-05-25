@@ -118,7 +118,7 @@ title: {{ page.title }}
                 <!-- Profile Photo -->
                 <div class="mb-6">
                     <img src="/assets/images/profile.jpg" alt="Christian Oliveros"
-                        class="w-8 h-8 md:w-10 md:h-10 rounded-full border-4 border-sky-400/50 shadow-lg shadow-sky-500/20 object-cover mx-auto">
+                        class="w-32 h-32 md:w-[10rem] md:h-[10rem] rounded-full border-4 border-sky-400/50 shadow-lg shadow-sky-500/20 object-cover mx-auto">
                 </div>
                 <h1 class="text-5xl md:text-7xl font-extrabold mb-2 tracking-tight">
                     <a href="/" class="text-white hover:text-sky-400 transition-colors">
@@ -133,7 +133,7 @@ title: {{ page.title }}
                 </p>
 
                 <!-- Hero Social Links -->
-                <div class="flex flex-wrap justify-center gap-6 text-slate-400 mt-8 mb-8">
+                <div class="flex flex-wrap justify-center gap-6 text-slate-400 mt-6 mb-6">
                     {% for social in site.socials %}
                     <a href="{{ social[1].url }}" class="hover:text-sky-400 transition-colors text-2xl">
                         <i class="{{ social[1].icon }}"></i>
@@ -141,7 +141,7 @@ title: {{ page.title }}
                     {% endfor %}
                 </div>
 
-                <div class="embla overflow-hidden max-w-full md:max-w-6xl mx-auto pt-24 py-12">
+                <div class="embla overflow-hidden max-w-full md:max-w-6xl mx-auto pt-6 py-12">
                     <div class="embla__container flex gap-6">
                         <div class="embla__slide flex-shrink-0 w-72 md:w-80">
                             <a href="/resume.html"
