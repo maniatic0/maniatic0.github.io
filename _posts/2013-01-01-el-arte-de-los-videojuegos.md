@@ -1,6 +1,8 @@
 ---
 layout: default
 title: El Arte de Los Videojuegos
+description: "High school research project on video games as art, presented at Gamexpo 2013 - the first of its kind in Venezuela."
+tags: ["Research", "Game Design"]
 ---
 
 # El Arte de Los Videojuegos

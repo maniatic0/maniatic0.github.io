@@ -2,6 +2,8 @@
 layout: default
 title: VisualizAR, AR math learning app
 date: 2022-02-05
+description: "Developed an AR application using Unity and Vuforia to help high school students learn graphing and vector math through interactive 3D visualizations optimized for mobile devices."
+tags: ["Unity", "AR", "Education", "Mobile"]
 ---
 
 # VisualizAR, AR math learning app

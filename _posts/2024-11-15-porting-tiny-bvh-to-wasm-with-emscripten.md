@@ -2,6 +2,8 @@
 layout: default
 title: Porting Tiny BVH to WASM with Emscripten
 date: 2024-11-15
+description: "Deep dive into porting a high-performance BVH library to WebAssembly using Emscripten, covering SIMD optimization, threading challenges, and debugging techniques for browser-based ray tracing."
+tags: ["WASM", "C++", "Performance", "Ray Tracing"]
 ---
 
 # Porting Tiny BVH to WASM with Emscripten

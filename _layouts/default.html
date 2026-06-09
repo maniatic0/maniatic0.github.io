@@ -117,8 +117,10 @@ title: {{ page.title }}
             <div class="text-center">
                 <!-- Profile Photo -->
                 <div class="mb-6">
-                    <img src="/assets/images/profile.jpg" alt="Christian Oliveros"
-                        class="w-32 h-32 md:w-[10rem] md:h-[10rem] rounded-full border-4 border-sky-400/50 shadow-lg shadow-sky-500/20 object-cover mx-auto">
+                    <a href="/" class="block">
+                        <img src="/assets/images/profile.jpg" alt="Christian Oliveros"
+                            class="w-32 h-32 md:w-[10rem] md:h-[10rem] rounded-full border-4 border-sky-400/50 shadow-lg shadow-sky-500/20 object-cover mx-auto hover:scale-105 transition-transform cursor-pointer">
+                    </a>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-extrabold mb-2 tracking-tight">
                     <a href="/" class="text-white hover:text-sky-400 transition-colors">
@@ -153,8 +155,7 @@ title: {{ page.title }}
                                         class="text-white font-bold text-xl mb-1 group-hover:text-sky-400 transition-colors line-clamp-1">
                                         Résumé</h3>
                                     <p class="text-slate-400 text-sm line-clamp-2">Professional experience, skills,
-                                        and
-                                        education.</p>
+                                        and education.</p>
                                 </div>
                             </a>
                         </div>
@@ -236,13 +237,19 @@ title: {{ page.title }}
             {% if page.title != "Home" %}
             <!-- Content Pages Header -->
             <div class="animate-in fade-in duration-700 mb-12">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-                    {{ page.title }}
-                </h1>
-                <div class="h-1 w-24 bg-sky-500 mt-4 rounded-full"></div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+                            {{ page.title }}
+                        </h1>
+                        <div class="h-1 w-24 bg-sky-500 mt-4 rounded-full"></div>
+                    </div>
+                    <a href="/" class="text-slate-400 hover:text-sky-400 transition-colors text-sm">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Back to Home
+                    </a>
+                </div>
             </div>
             {% endif %}
-
 
             <!-- Main Content Area -->
             <div class="glass-card p-6 md:p-12 rounded-3xl min-h-[400px]">

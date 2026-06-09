@@ -2,6 +2,8 @@
 layout: default
 title: Fast Memory Copy using AVX
 date: 2022-01-31
+description: "Optimized asynchronous memory copy for voxel engine using AVX instructions and loop unrolling, improving performance with 8-register streaming operations."
+tags: ["C++", "Performance", "SIMD", "Game Engine"]
 ---
 
 # Fast Memory Copy using AVX

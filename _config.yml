@@ -26,3 +26,7 @@ socials:
     url: "mailto:christianol_work@outlook.com"
     icon: "fas fa-envelope"
     label: "Email"
+  cv:
+      url: "/assets/Christian_CV.pdf"
+      icon: "fas fa-file-pdf"
+      label: "Download CV"

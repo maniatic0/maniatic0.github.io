@@ -2,6 +2,8 @@
 layout: default
 title: Wall the Mole techdemo
 date: 2022-02-02
+description: "Tower defense game using uCrowds UE4 plugin with 10,000 concurrent agents. Developed instanced mesh rendering system, memory pools, and Blueprints API for team collaboration."
+tags: ["Unreal Engine", "Crowd Simulation", "Game Engine", "Game Design"]
 ---
 
 # Wall the Mole techdemo

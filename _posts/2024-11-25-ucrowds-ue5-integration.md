@@ -2,6 +2,8 @@
 layout: default
 title: uCrowds UE5 Integration
 date: 2024-11-25
+description: "Integrated uCrowds' high-performance crowd simulation engine into Unreal Engine 5, bridging C++ performance with Blueprint accessibility for technical artists."
+tags: ["Unreal Engine", "Crowd Simulation", "Game Engine", "Performance"]
 ---
 
 # uCrowds UE5 Integration

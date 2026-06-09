@@ -2,6 +2,8 @@
 layout: default
 title: Cooperative Multitasking Test with Rayon (Rust)
 date: 2024-01-01
+description: "Technical exploration of cooperative multitasking using the Rayon library in Rust, demonstrating task scheduling and concurrency patterns in high-performance environments."
+tags: ["Rust", "Concurrency", "Performance"]
 ---
 
 # Cooperative Multitasking Test with Rayon (Rust)

@@ -2,6 +2,8 @@
 layout: default
 title: Real-time CPU Ray Tracer in C++
 date: 2022-02-03
+description: "Built a real-time CPU raytracer in C++ for Advanced Graphics course, implementing BVH acceleration structures and SIMD optimization for ray-AABB intersection tests."
+tags: ["C++", "Graphics", "Ray Tracing", "SIMD", "Performance"]
 ---
 
 # Real-time CPU Ray Tracer in C++
