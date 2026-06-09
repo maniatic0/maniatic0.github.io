@@ -5,6 +5,14 @@ title: Portfolio Articles
 
 # {{ page.title }}
 
+<ul class="space-y-3">
 {% for post in site.posts %}
-- **{{ post.title }}** - *{{ post.description }}* [Article]({{ post.url }})
+  <li class="text-slate-300">
+    <a href="{{ post.url }}" class="font-bold text-white hover:text-sky-400 transition-colors">
+      {{ post.title }}
+    </a>
+    <span class="text-slate-400 mx-2">—</span>
+    <span class="italic text-slate-300">{{ post.description }}</span>
+  </li>
 {% endfor %}
+</ul>
