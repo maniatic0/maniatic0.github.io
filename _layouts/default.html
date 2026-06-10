@@ -63,27 +63,16 @@ title: {{ page.title }}
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
-        .prose {
-            color: #cbd5e1;
-        }
-
-        .prose h1,
-        .prose h2,
-        .prose h3,
-        .prose h4 {
-            color: #f1f5f9;
-        }
-
+        /* Override prose link color to sky-400 */
         .prose a {
             color: #38bdf8;
-            text-decoration: underline;
         }
 
-        .prose strong {
-            color: #f8fafc;
+        .prose a:hover {
+            color: #38bdf8;
         }
 
-        /* Override prose list styles */
+        /* Custom list styles (not handled by typography plugin) */
         .prose ul {
             list-style: none;
             padding-left: 0;
@@ -107,6 +96,32 @@ title: {{ page.title }}
 
         .prose ul li a:hover {
             color: #38bdf8;
+        }
+
+        /* Code block styling */
+        .prose pre {
+            background-color: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
+            overflow-x: auto;
+        }
+
+        .prose pre code {
+            color: #e2e8f0;
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            font-size: 0.875em;
+        }
+
+        /* Inline code styling */
+        .prose code {
+            color: #e2e8f0;
+            background-color: rgba(15, 23, 42, 0.6);
+            padding: 0.2em 0.4em;
+            border-radius: 0.375rem;
+            font-size: 0.875em;
         }
 
         /* Smooth transitions */
