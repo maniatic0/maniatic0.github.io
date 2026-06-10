@@ -5,8 +5,6 @@ description: "Collection of study guides and summaries for Computer Science cour
 tags: ["Education", "Computer Science"]
 ---
 
-# Guías y Resúmenes
-
 Aquí se encuentran las guías y resúmenes que he realizado para cursos de Computación de la USB.
 
 ## Mis Guías

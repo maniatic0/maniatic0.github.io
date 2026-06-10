@@ -6,8 +6,6 @@ description: "Developed an AR application using Unity and Vuforia to help high s
 tags: ["Unity", "AR", "Education", "Mobile"]
 ---
 
-# VisualizAR, AR math learning app
-
 **Language**: C#
 
 **Engine**: Unity

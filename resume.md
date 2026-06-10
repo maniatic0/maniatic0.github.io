@@ -5,7 +5,7 @@ title: Résumé
 
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
     <div class="text-left">
-        <h1 class="text-4xl font-extrabold text-white mb-2">Résumé</h1>
+        <h1 class="text-4xl font-extrabold text-white mb-2">CV</h1>
         <p class="text-slate-400">Professional experience and technical skills.</p>
     </div>
     <div class="flex gap-4">
@@ -88,7 +88,7 @@ title: Résumé
                     <ul class="space-y-4">
                         <li>
                             <a href="https://github.com/maniatic0/Christian-TRAA" class="text-lg font-semibold text-sky-400 hover:text-sky-300">Temporal Anti-Aliasing Master</a>
-                            <p class="text-sm text-slate-400">Thesis published on Lund University [Students Papers](http://lup.lub.lu.se/student-papers/record/8971248).</p>
+                            <p class="text-sm text-slate-400">Thesis published on Lund University <a href="http://lup.lub.lu.se/student-papers/record/8971248">Students Papers</a>.</p>
                         </li>
                         <li>
                             <a href="https://drive.google.com/file/d/0B1OLmVbUs-1ddm44eUpOU1k1OFk/view" class="text-lg font-semibold text-sky-400 hover:text-sky-300">Discrete Structures Guides</a>

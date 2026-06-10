@@ -6,8 +6,6 @@ description: "Tower defense game using uCrowds UE4 plugin with 10,000 concurrent
 tags: ["Unreal Engine", "Crowd Simulation", "Game Engine", "Game Design"]
 ---
 
-# Wall the Mole techdemo
-
 **Language**: C++ and Blueprints
 
 **Engine**: Unreal Engine 4 (UE4)

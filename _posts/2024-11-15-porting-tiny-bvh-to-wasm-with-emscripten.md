@@ -6,8 +6,6 @@ description: "Deep dive into porting a high-performance BVH library to WebAssemb
 tags: ["WASM", "C++", "Performance", "Ray Tracing"]
 ---
 
-# Porting Tiny BVH to WASM with Emscripten
-
 Given my recent extra free time, I’ve decided to learn WASM and how it can be used with C/C++. To this end, I’ve decided to help port a high-performance library to it.
 
 ## Basics

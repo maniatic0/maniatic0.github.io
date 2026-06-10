@@ -6,8 +6,6 @@ description: "Technical exploration of cooperative multitasking using the Rayon 
 tags: ["Rust", "Concurrency", "Performance"]
 ---
 
-# Cooperative Multitasking Test with Rayon (Rust)
-
 This project is a technical test exploring cooperative multitasking using the **Rayon** library in Rust. It demonstrates how to handle task scheduling and concurrency in a high-performance environment.
 
 You can view the full source code and implementation details on GitHub:

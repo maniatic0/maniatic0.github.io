@@ -6,8 +6,6 @@ description: "Optimized asynchronous memory copy for voxel engine using AVX inst
 tags: ["C++", "Performance", "SIMD", "Game Engine"]
 ---
 
-# Fast Memory Copy using AVX
-
 **Language**: C++
 
 **Team Size**: 2

@@ -6,8 +6,6 @@ description: "Built a real-time CPU raytracer in C++ for Advanced Graphics cours
 tags: ["C++", "Graphics", "Ray Tracing", "SIMD", "Performance"]
 ---
 
-# Real-time CPU Ray Tracer in C++
-
 **Language**: C++
 
 **Team Size**: 2

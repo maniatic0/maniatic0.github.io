@@ -3,8 +3,6 @@ layout: default
 title: Portfolio Articles
 ---
 
-# {{ page.title }}
-
 <ul class="space-y-3">
 {% for post in site.posts %}
   <li class="text-slate-300">

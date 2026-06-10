@@ -3,8 +3,6 @@ layout: default
 title: Games Portfolio
 ---
 
-# Games Portfolio
-
 ## University
 
 {% for post in site.posts %}
