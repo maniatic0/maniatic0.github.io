@@ -44,6 +44,8 @@ title: {{ page.title }}
         });
     </script>
 
+        <script src="assets/js/animated-profile.js"></script>
+
 
     <style type="text/css">
         body {
@@ -156,12 +158,19 @@ title: {{ page.title }}
 
             <!-- Home Page Hero Section -->
             <div class="text-center">
-                <!-- Profile Photo -->
-                <div class="mb-6">
-                    <a href="/" class="block">
-                        <img src="/assets/images/profile.jpg" alt="Christian Oliveros"
-                            class="w-32 h-32 md:w-[10rem] md:h-[10rem] rounded-full border-4 border-sky-400/50 shadow-lg shadow-sky-500/20 object-cover mx-auto hover:scale-105 transition-transform cursor-pointer">
-                    </a>
+                <!-- Animated Profile Photo Container -->
+                <div class="mb-6 relative w-full h-[12rem] md:h-[14rem]" id="profile-animation-container">
+                  <!-- Floating Icons Layer (behind the profile) -->
+                    <div id="floating-icons" class="absolute top-0 left-0 w-full h-full pointer-events-none"></div>
+                    
+                    <!-- Profile Photo (animated) -->
+                    <div id="profile-wrapper" class="relative">
+                        <a href="/" class="block">
+                            <img src="/assets/images/profile.jpg" alt="Christian Oliveros"
+                                id="profile-img"
+                                class="w-32 h-32 md:w-[10rem] md:h-[10rem] rounded-full border-4 border-sky-400/50 shadow-lg shadow-sky-500/20 object-cover mx-auto hover:scale-105 transition-transform cursor-pointer">
+                        </a>
+                    </div>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-extrabold mb-2 tracking-tight">
                     <a href="/" class="text-white hover:text-sky-400 transition-colors">
