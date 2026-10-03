@@ -25,10 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const dragThreshold = 5;
 
     scroller.style.cursor = 'grab';
+    scroller.addEventListener('dragstart', (event) => event.preventDefault());
 
     scroller.addEventListener('pointerdown', (event) => {
         if (event.pointerType !== 'mouse' || event.button !== 0) return;
 
+        suppressClick = false;
         pointerId = event.pointerId;
         startX = event.clientX;
         startScrollLeft = scroller.scrollLeft;
