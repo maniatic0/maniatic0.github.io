@@ -78,6 +78,25 @@ document.addEventListener('DOMContentLoaded', () => {
     let trackLength = 0;
     let lastTimestamp;
     let elapsed = 0;
+    let animationFrame = null;
+    let pageVisible = !document.hidden;
+    let inViewport = typeof IntersectionObserver === 'undefined';
+
+    function stopAnimation() {
+        if (animationFrame !== null) {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = null;
+        }
+        lastTimestamp = undefined;
+    }
+
+    function syncAnimation() {
+        if (pageVisible && inViewport) {
+            if (animationFrame === null) animationFrame = requestAnimationFrame(animate);
+        } else {
+            stopAnimation();
+        }
+    }
 
     function updateLayout(initial = false) {
         const nextWidth = backLayer.clientWidth;
@@ -115,8 +134,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateLayout(true);
     window.addEventListener('resize', () => updateLayout());
+    document.addEventListener('visibilitychange', () => {
+        pageVisible = !document.hidden;
+        syncAnimation();
+    });
+
+    if ('IntersectionObserver' in window) {
+        inViewport = false;
+        const observer = new IntersectionObserver(entries => {
+            inViewport = entries.some(entry => entry.isIntersecting);
+            syncAnimation();
+        });
+        observer.observe(backLayer.parentElement || backLayer);
+    }
 
     function animate(timestamp) {
+        animationFrame = null;
+        if (!pageVisible || !inViewport) return;
         if (lastTimestamp === undefined) lastTimestamp = timestamp;
         const delta = Math.min((timestamp - lastTimestamp) / 1000, 0.05);
         lastTimestamp = timestamp;
@@ -142,8 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
             icon.element.style.opacity = `${opacity}`;
         });
 
-        requestAnimationFrame(animate);
+        syncAnimation();
     }
 
-    requestAnimationFrame(animate);
+    syncAnimation();
 });
