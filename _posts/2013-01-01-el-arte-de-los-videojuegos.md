@@ -1,6 +1,7 @@
 ---
 layout: default
 title: El Arte de Los Videojuegos
+lang: es
 description: "High school research project on video games as art, presented at Gamexpo 2013 - the first of its kind in Venezuela."
 tags: ["Research", "Game Design"]
 ---
@@ -13,4 +14,3 @@ Este fue mi Proyecto de Investigación de Bachillerato, el primero de su tipo en
 <div class="flex justify-center mt-8">
     <img src="/assets/images/background_wordpress.jpg" alt="WordPress Background" class="rounded-xl shadow-lg max-w-full h-auto">
 </div>
-

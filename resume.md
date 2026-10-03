@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Résumé
+description: Résumé and CV of Christian Oliveros, including education, technical skills, publications, and experience.
 ---
 
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
@@ -21,11 +22,13 @@ title: Résumé
         <!-- PDF Embed Section -->
         <section class="glass-card rounded-2xl overflow-hidden border border-slate-700/50">
             <div class="bg-slate-800/50 px-6 py-3 border-b border-slate-700/50 flex justify-between items-center">
-                <span classs="text-sm font-semibold text-slate-400 uppercase tracking-widest">Document Preview</span>
+                <span class="text-sm font-semibold text-slate-400 uppercase tracking-widest">Document Preview</span>
                 <span class="text-xs text-sky-400">PDF Format</span>
             </div>
             <div class="aspect-[1/1.414] w-full">
-                <iframe src="/assets/Christian_CV.pdf#toolbar=0" width="100%" height="100%" class="rounded-b-2xl" style="border: none;"></iframe>
+                <iframe src="/assets/Christian_CV.pdf#toolbar=0" title="Christian Oliveros résumé PDF" width="100%" height="100%" class="rounded-b-2xl" style="border: none;">
+                    PDF preview unavailable. <a href="/assets/Christian_CV.pdf">Download the résumé PDF</a>.
+                </iframe>
             </div>
         </section>
 
@@ -62,13 +65,13 @@ title: Résumé
                                 <li>Visual Studio</li>
                                 <li>Perforce</li>
                                 <li>Git</li>
-                                <li>Github</li>
+                                <li>GitHub</li>
                                 <li>Bitbucket</li>
                                 <li>GameMaker</li>
                                 <li>Photoshop</li>
                                 <li>Microsoft Office</li>
                                 <li>Prezi</li>
-                                <li>WunderList</li>
+                                <li>Wunderlist</li>
                                 <li>Trello</li>
                             </ul>
                         </div>
@@ -79,7 +82,7 @@ title: Résumé
                     <h3 class="text-xl font-bold text-white mb-4">Languages</h3>
                     <ul class="text-slate-300 space-y-2">
                         <li><span class="font-semibold text-white">Spanish:</span> Native Language</li>
-                        <li><span class="font-semibold text-white">English:</span> 109/120 TOFL Internet Based Test</li>
+                        <li><span class="font-semibold text-white">English:</span> TOEFL iBT: 109/120</li>
                     </ul>
                 </div>
 
@@ -111,13 +114,13 @@ title: Résumé
             </h2>
             <div class="space-y-6">
                 <div class="border-l-2 border-sky-500/30 pl-4">
-                    <h3 class="font-bold text-white">Msc. Game & Media Tech</h3>
+                    <h3 class="font-bold text-white">MSc Game & Media Technology</h3>
                     <p class="text-sm text-sky-400">Utrecht University</p>
                     <p class="text-xs text-slate-400 mt-1">2020 - 2022</p>
                     <p class="text-sm text-slate-300 mt-2 italic">GPA: 8.73/10</p>
                 </div>
                 <div class="border-l-2 border-sky-500/30 pl-4">
-                    <h3 class="font-bold text-white">Bsc. Computer Science</h3>
+                    <h3 class="font-bold text-white">BSc Computer Science</h3>
                     <p class="text-sm text-sky-400">Universidad Simón Bolívar</p>
                     <p class="text-xs text-slate-400 mt-1">2013 - 2020</p>
                     <p class="text-sm text-slate-300 mt-2 italic">Graduated Summa Cum Laude</p>

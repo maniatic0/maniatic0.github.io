@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Games Portfolio
+description: Game development portfolio of Christian Oliveros, featuring university projects, game jams, and personal games.
 ---
 
 ## University

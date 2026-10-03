@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Guías y Resúmenes
+lang: es
 description: "Collection of study guides and summaries for Computer Science courses at Universidad Simón Bolívar, covering Discrete Mathematics and Digital Circuits."
 tags: ["Education", "Computer Science"]
 ---

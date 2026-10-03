@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Portfolio Articles
+description: Technical articles by Christian Oliveros about game engines, graphics, WebAssembly, SIMD, and performance optimization.
 ---
 
 <ul class="space-y-3">

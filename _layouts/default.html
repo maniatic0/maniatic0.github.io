@@ -4,12 +4,26 @@ title: {{ page.title }}
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang | default: site.lang | default: 'en' | escape }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | Christian's Portfolio</title>
+    {% assign seo_title = page.title | default: site.title %}
+    {% assign seo_description = page.description | default: site.description %}
+    {% assign seo_image = page.image | default: '/assets/images/profile.jpg' %}
+    <title>{% if page.title and page.title != 'Home' %}{{ seo_title | escape }} | {% endif %}{{ site.title | escape }} | Portfolio</title>
+    <meta name="description" content="{{ seo_description | strip_html | normalize_whitespace | escape }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <meta property="og:title" content="{{ seo_title | escape }}">
+    <meta property="og:description" content="{{ seo_description | strip_html | normalize_whitespace | escape }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
+    <meta property="og:image" content="{{ seo_image | absolute_url }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ seo_title | escape }}">
+    <meta name="twitter:description" content="{{ seo_description | strip_html | normalize_whitespace | escape }}">
+    <meta name="twitter:image" content="{{ seo_image | absolute_url }}">
 
     <!-- Icons -->
     <link rel="icon" type="image/x-icon" href="/assets/images/icons/favicon.ico">
@@ -28,23 +42,11 @@ title: {{ page.title }}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Embla Carousel CDN -->
-    <script src="https://unpkg.com/embla-carousel@8.0.0/embla-carousel.umd.js"></script>
+    {% if page.title == 'Home' %}
+    <script src="/assets/js/home-carousel.js" defer></script>
+    {% endif %}
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const emblaNode = document.querySelector('.embla');
-            if (emblaNode) {
-                const emblaApi = EmblaCarousel(emblaNode, {
-                    loop: false,
-                    align: 'start',
-                    containScroll: 'trimSnaps'
-                });
-            }
-        });
-    </script>
-
-    <script src="/assets/js/animated-profile.js"></script>
+    <script src="/assets/js/animated-profile.js" defer></script>
 
 
     <style type="text/css">
@@ -218,15 +220,25 @@ title: {{ page.title }}
                 <!-- Hero Social Links -->
                 <div class="flex flex-wrap justify-center gap-6 text-slate-400 mt-6 mb-6">
                     {% for social in site.socials %}
-                    <a href="{{ social[1].url }}" class="hover:text-sky-400 transition-colors text-2xl">
-                        <i class="{{ social[1].icon }}"></i>
+                    <a href="{{ social[1].url }}" aria-label="{{ social[1].label | escape }}" class="hover:text-sky-400 transition-colors text-2xl">
+                        <i class="{{ social[1].icon }}" aria-hidden="true"></i>
                     </a>
                     {% endfor %}
                 </div>
 
-                <div class="embla overflow-hidden max-w-full md:max-w-6xl mx-auto pt-6 py-12">
-                    <div class="embla__container flex gap-6">
-                        <div class="embla__slide flex-shrink-0 w-72 md:w-80">
+                <section class="max-w-full md:max-w-6xl mx-auto pt-6 py-12" aria-label="Featured site sections">
+                    <div class="flex justify-end gap-3 mb-3">
+                        <button id="featured-links-prev" type="button" aria-label="Previous featured links" disabled
+                            class="glass-card inline-flex items-center justify-center w-11 h-11 rounded-xl text-slate-300 hover:text-sky-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 disabled:opacity-40 disabled:cursor-not-allowed">
+                            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                        <button id="featured-links-next" type="button" aria-label="Next featured links"
+                            class="glass-card inline-flex items-center justify-center w-11 h-11 rounded-xl text-slate-300 hover:text-sky-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 disabled:opacity-40 disabled:cursor-not-allowed">
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div id="featured-links" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth motion-reduce:scroll-auto no-scrollbar pb-2" role="region" aria-label="Featured links" tabindex="0">
+                        <div class="flex-shrink-0 w-72 md:w-80 snap-start">
                             <a href="/resume.html"
                                 class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
                                 <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">📄
@@ -240,7 +252,7 @@ title: {{ page.title }}
                                 </div>
                             </a>
                         </div>
-                        <div class="embla__slide flex-shrink-0 w-72 md:w-80">
+                        <div class="flex-shrink-0 w-72 md:w-80 snap-start">
                             <a href="/portfolio.html"
                                 class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
                                 <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">🚀
@@ -254,7 +266,7 @@ title: {{ page.title }}
                                 </div>
                             </a>
                         </div>
-                        <div class="embla__slide flex-shrink-0 w-72 md:w-80">
+                        <div class="flex-shrink-0 w-72 md:w-80 snap-start">
                             <a href="/games.html"
                                 class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
                                 <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">🎮
@@ -268,7 +280,7 @@ title: {{ page.title }}
                                 </div>
                             </a>
                         </div>
-                        <div class="embla__slide flex-shrink-0 w-72 md:w-80">
+                        <div class="flex-shrink-0 w-72 md:w-80 snap-start">
                             <a href="/2022/01/01/guias-y-resumenes.html"
                                 class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
                                 <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">📚
@@ -282,7 +294,7 @@ title: {{ page.title }}
                                 </div>
                             </a>
                         </div>
-                        <div class="embla__slide flex-shrink-0 w-72 md:w-80">
+                        <div class="flex-shrink-0 w-72 md:w-80 snap-start">
                             <a href="/2022/01/01/mate-2.html"
                                 class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
                                 <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">📐
@@ -297,7 +309,7 @@ title: {{ page.title }}
                                 </div>
                             </a>
                         </div>
-                        <div class="embla__slide flex-shrink-0 w-72 md:w-80">
+                        <div class="flex-shrink-0 w-72 md:w-80 snap-start">
                             <a href="/2013/01/01/el-arte-de-los-videojuegos.html"
                                 class="group glass-card flex items-start gap-4 p-6 rounded-2xl hover:border-sky-500/50 transition-all hover:-translate-y-2 text-left">
                                 <div class="text-4xl group-hover:scale-110 transition-transform flex-shrink-0">🎨
@@ -312,7 +324,8 @@ title: {{ page.title }}
                             </a>
                         </div>
                     </div>
-                </div>
+                    </div>
+                </section>
             </div>
 
             {% if page.title != "Home" %}
@@ -351,7 +364,7 @@ title: {{ page.title }}
                         {% for social in site.socials %}
                         <a href="{{ social[1].url }}" class="hover:text-sky-400 transition-colors flex items-center gap-2">
                             {% if social[1].icon %}
-                            <i class="{{ social[1].icon }}"></i>
+                            <i class="{{ social[1].icon }}" aria-hidden="true"></i>
                             {% endif %}
                             <span class="font-medium">{{ social[1].label }}</span>
                         </a>
@@ -359,7 +372,7 @@ title: {{ page.title }}
                     </div>
                 </div>
             </div>
-            <p>&copy; {{ "now" | date: "%Y" }} Christian. Built with Jekyll, Tailwind CSS, FontAwesome, Google Fonts & Embla.</p>
+            <p>&copy; {{ "now" | date: "%Y" }} Christian. Built with Jekyll, Tailwind CSS, FontAwesome & Google Fonts.</p>
         </footer>
     </div>
 
