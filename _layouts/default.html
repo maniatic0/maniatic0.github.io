@@ -44,7 +44,7 @@ title: {{ page.title }}
         });
     </script>
 
-        <script src="assets/js/animated-profile.js"></script>
+    <script src="/assets/js/animated-profile.js"></script>
 
 
     <style type="text/css">
@@ -145,6 +145,38 @@ title: {{ page.title }}
             scrollbar-width: none;
             /* Firefox */
         }
+
+        #profile-animation-container {
+            position: relative;
+            height: 12rem;
+            overflow: hidden;
+        }
+
+        #profile-icons-back,
+        #profile-icons-front {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        #profile-icons-back {
+            z-index: 0;
+        }
+
+        #profile-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        #profile-icons-front {
+            z-index: 2;
+        }
+
+        @media (min-width: 768px) {
+            #profile-animation-container {
+                height: 14rem;
+            }
+        }
     </style>
 </head>
 
@@ -158,19 +190,18 @@ title: {{ page.title }}
 
             <!-- Home Page Hero Section -->
             <div class="text-center">
-                <!-- Animated Profile Photo Container -->
-                <div class="mb-6 relative w-full h-[12rem] md:h-[14rem]" id="profile-animation-container">
-                  <!-- Floating Icons Layer (behind the profile) -->
-                    <div id="floating-icons" class="absolute top-0 left-0 w-full h-full pointer-events-none"></div>
-                    
+                <!-- Profile Photo with pooled wind animation -->
+                <div class="mb-6" id="profile-animation-container">
+                    <div id="profile-icons-back" aria-hidden="true"></div>
                     <!-- Profile Photo (animated) -->
-                    <div id="profile-wrapper" class="relative">
+                    <div id="profile-wrapper">
                         <a href="/" class="block">
                             <img src="/assets/images/profile.jpg" alt="Christian Oliveros"
                                 id="profile-img"
                                 class="w-32 h-32 md:w-[10rem] md:h-[10rem] rounded-full border-4 border-sky-400/50 shadow-lg shadow-sky-500/20 object-cover mx-auto hover:scale-105 transition-transform cursor-pointer">
                         </a>
                     </div>
+                    <div id="profile-icons-front" aria-hidden="true"></div>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-extrabold mb-2 tracking-tight">
                     <a href="/" class="text-white hover:text-sky-400 transition-colors">

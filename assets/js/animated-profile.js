@@ -1,88 +1,149 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Animated Profile with Math Functions
     const profileImg = document.getElementById('profile-img');
     const profileWrapper = document.getElementById('profile-wrapper');
-    const floatingIconsContainer = document.getElementById('floating-icons');
-    if (!profileImg || !profileWrapper) return;
+    const backLayer = document.getElementById('profile-icons-back');
+    const frontLayer = document.getElementById('profile-icons-front');
 
-    // Floating icons configuration - game-related icons that fly opposite to profile movement
-    const icons = [
-        { icon: 'fa-solid fa-gamepad', delay: 0 },
-        { icon: 'fa-solid fa-ghost', delay: 1.5 },
-        { icon: 'fa-solid fa-bug', delay: 3.0 },
-        { icon: 'fa-solid fa-bolt', delay: 4.5 },
-        { icon: 'fa-solid fa-dice', delay: 6.0 },
-        { icon: 'fa-solid fa-rocket', delay: 7.5 }
+    if (!profileImg || !profileWrapper || !backLayer || !frontLayer) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+
+    const iconClasses = [
+        'fa-solid fa-gamepad',
+        'fa-solid fa-ghost',
+        'fa-solid fa-bug',
+        'fa-solid fa-bolt',
+        'fa-solid fa-dice',
+        'fa-solid fa-rocket',
+        'fa-solid fa-dragon',
+        'fa-solid fa-wand-magic-sparkles'
     ];
+    const poolSize = 24;
+    const laneCount = 4;
+    const objectsPerLane = poolSize / laneCount;
+    const maxIconSize = 34;
+    const edgeFade = 72;
+    const spawnGap = 48;
+    const bobAmplitude = 8;
 
-    // Animation state - use a loop time for smooth, periodic motion
-    const LOOP_DURATION = 3; // seconds for one full cycle
-    let loopTime = 0;
-    let lastTimestamp = 0;
+    function randomBaseY(size, height) {
+        const minY = Math.min(height / 2, size / 2 + bobAmplitude);
+        const maxY = Math.max(minY, height - size / 2 - bobAmplitude);
+        return minY + Math.random() * (maxY - minY);
+    }
 
-    // Create floating icon elements
-    const floatingIcons = [];
-    icons.forEach((iconConfig, index) => {
-        const iconEl = document.createElement('i');
-        iconEl.className = `${iconConfig.icon} text-sky-400/40 text-lg absolute pointer-events-none`;
-        floatingIconsContainer.appendChild(iconEl);
-        floatingIcons.push({ el: iconEl, index: index, delay: iconConfig.delay });
+    // Stagger each lane like offset rows so the screen stays populated.
+    // These DOM nodes are created once and reused for every pass.
+    const iconPool = Array.from({ length: poolSize }, (_, index) => {
+        const lane = Math.floor(index / objectsPerLane);
+        const slot = index % objectsPerLane;
+        const inFront = (lane + slot) % 2 === 0;
+        const size = inFront ? 26 + Math.random() * 8 : 19 + Math.random() * 6;
+        const element = document.createElement('i');
+
+        element.className = iconClasses[index % iconClasses.length];
+        element.setAttribute('aria-hidden', 'true');
+        Object.assign(element.style, {
+            position: 'absolute',
+            left: '0px',
+            top: '0px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: `${size}px`,
+            height: `${size}px`,
+            color: 'rgb(56, 189, 248)',
+            fontSize: `${size * 0.82}px`,
+            lineHeight: '1',
+            pointerEvents: 'none',
+            willChange: 'transform, opacity'
+        });
+        (inFront ? frontLayer : backLayer).appendChild(element);
+
+        return {
+            element,
+            lane,
+            slot,
+            inFront,
+            x: 0,
+            speed: 0,
+            size,
+            phase: index * 0.73,
+            baseY: 0,
+            baseOpacity: inFront ? 0.88 : 0.28
+        };
     });
 
-    // Animation function using sin/cos for profile bobbing
+    let width = 0;
+    let padding = 0;
+    let trackLength = 0;
+    let lastTimestamp;
+    let elapsed = 0;
+
+    function updateLayout(initial = false) {
+        const nextWidth = backLayer.clientWidth;
+        const nextPadding = spawnGap * objectsPerLane / 2 + maxIconSize / 2;
+        const nextTrackLength = nextWidth + nextPadding * 2;
+        const layerHeight = backLayer.clientHeight;
+        const minSpeed = Math.max(110, nextWidth / 10);
+        const maxSpeed = Math.max(minSpeed + 40, nextWidth / 6);
+
+        if (initial || trackLength === 0) {
+            iconPool.forEach(icon => {
+                const stagger = icon.lane % 2 === 0 ? 0 : 0.5;
+                const fraction = ((icon.slot + 0.5 + stagger) / objectsPerLane) % 1;
+                icon.x = -nextPadding + fraction * nextTrackLength;
+            });
+        } else {
+            iconPool.forEach(icon => {
+                const position = (((icon.x + padding) % trackLength) + trackLength) % trackLength;
+                icon.x = -nextPadding + (position / trackLength) * nextTrackLength;
+            });
+        }
+
+        width = nextWidth;
+        padding = nextPadding;
+        trackLength = nextTrackLength;
+        iconPool.forEach(icon => {
+            // Give every icon an independent speed and vertical position. Keep
+            // both stable during resize; only choose new values on first setup.
+            if (initial || icon.speed === 0) {
+                icon.speed = minSpeed + Math.random() * (maxSpeed - minSpeed);
+            }
+            icon.baseY = randomBaseY(icon.size, layerHeight);
+        });
+    }
+
+    updateLayout(true);
+    window.addEventListener('resize', () => updateLayout());
+
     function animate(timestamp) {
-        if (!lastTimestamp) lastTimestamp = timestamp;
-        const dt = (timestamp - lastTimestamp) / 1000; // seconds
+        if (lastTimestamp === undefined) lastTimestamp = timestamp;
+        const delta = Math.min((timestamp - lastTimestamp) / 1000, 0.05);
         lastTimestamp = timestamp;
-        loopTime += dt;
+        elapsed += delta;
 
-        // Normalize to loop time - this creates smooth, repeating motion
-        // The modulo creates a seamless loop from 0 to LOOP_DURATION
-        const t = loopTime % LOOP_DURATION;
-        // Normalize to 0..1 range for smoother control
-        const normalized = t / LOOP_DURATION;
-        // Convert to radians for sin/cos functions (full 2π cycle per loop)
-        const angle = normalized * Math.PI * 2;
+        const profileAngle = elapsed * 0.7;
+        profileWrapper.style.transform = `translate(${Math.sin(profileAngle) * 8}px, ${Math.cos(profileAngle * 0.7) * 4}px)`;
 
-        // Profile bobbing with sin/cos - gentle, floating motion
-        const bobX = Math.sin(angle) * 12;  // horizontal bob (gentler)
-        const bobY = Math.cos(angle * 0.7) * 6;  // vertical bob with different frequency
+        iconPool.forEach(icon => {
+            icon.x -= icon.speed * delta;
+            while (icon.x < -padding) {
+                icon.x += trackLength;
+                icon.baseY = randomBaseY(icon.size, backLayer.clientHeight);
+                icon.speed = Math.max(110, width / 10) + Math.random() * (Math.max(150, width / 6) - Math.max(110, width / 10));
+            }
 
-        // Apply transformation to profile
-        profileWrapper.style.transform = `translate(${bobX}px, ${bobY}px)`;
+            const fadeIn = Math.max(0, Math.min(1, (icon.x + icon.size / 2) / edgeFade));
+            const fadeOut = Math.max(0, Math.min(1, (width + icon.size / 2 - icon.x) / edgeFade));
+            const opacity = icon.baseOpacity * Math.min(fadeIn, fadeOut);
+            const y = icon.baseY + Math.sin(elapsed * 1.1 + icon.phase) * bobAmplitude;
 
-        // Floating icons move opposite to profile movement
-        floatingIcons.forEach((icon, i) => {
-            // Each icon has a different phase offset
-            const phase = icon.delay * Math.PI / 4; // spread phases across circle
-            // Use normalized time for consistent looping
-            const iconAngle = normalized * Math.PI * 2 + phase;
-            
-            // Icons move opposite to profile - with varying speeds
-            const speedVariation = 0.8 + (i % 3) * 0.2; // slight speed variation
-            const effectiveAngle = iconAngle * speedVariation;
-
-            // Horizontal position: opposite direction to profile
-            const xOffset = -(Math.sin(effectiveAngle) * 25);
-            const yOffset = Math.cos(effectiveAngle * 0.5) * 10;
-
-            // Spread icons across the container
-            const spread = 300;
-            const baseX = (i / icons.length) * spread - spread / 2;
-            const xPos = baseX + xOffset;
-            const yPos = 55 + yOffset; // position icons below profile
-
-            icon.el.style.transform = `translate(${xPos}px, ${yPos}px)`;
-
-            // Opacity oscillation - icons fade in/out smoothly
-            const opacity = 0.7 + Math.sin(angle + phase) * 0.3;
-            icon.el.style.opacity = Math.max(0.5, Math.min(1.0, opacity));
+            icon.element.style.transform = `translate3d(${icon.x - icon.size / 2}px, ${y - icon.size / 2}px, 0)`;
+            icon.element.style.opacity = `${opacity}`;
         });
 
-        // Request next frame
         requestAnimationFrame(animate);
     }
 
-    // Start animation
     requestAnimationFrame(animate);
 });
