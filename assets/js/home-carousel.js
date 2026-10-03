@@ -2,8 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const scroller = document.getElementById('featured-links');
     const previousButton = document.getElementById('featured-links-prev');
     const nextButton = document.getElementById('featured-links-next');
+    const dragSurface = scroller && scroller.parentElement;
 
-    if (!scroller || !previousButton || !nextButton) return;
+    if (!scroller || !previousButton || !nextButton || !dragSurface) return;
 
     function updateButtons() {
         previousButton.disabled = scroller.scrollLeft <= 1;
@@ -25,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const dragThreshold = 5;
 
     scroller.style.cursor = 'grab';
-    scroller.addEventListener('dragstart', (event) => event.preventDefault());
+    dragSurface.addEventListener('dragstart', (event) => event.preventDefault());
 
-    scroller.addEventListener('pointerdown', (event) => {
+    dragSurface.addEventListener('pointerdown', (event) => {
         if (event.pointerType !== 'mouse' || event.button !== 0) return;
 
         suppressClick = false;
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isDragging = false;
     });
 
-    scroller.addEventListener('pointermove', (event) => {
+    dragSurface.addEventListener('pointermove', (event) => {
         if (event.pointerId !== pointerId) return;
 
         const deltaX = event.clientX - startX;
@@ -68,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         updateButtons();
     }
 
-    scroller.addEventListener('pointerup', endDrag);
-    scroller.addEventListener('pointercancel', endDrag);
-    scroller.addEventListener('click', (event) => {
+    dragSurface.addEventListener('pointerup', endDrag);
+    dragSurface.addEventListener('pointercancel', endDrag);
+    dragSurface.addEventListener('click', (event) => {
         if (!suppressClick) return;
 
         event.preventDefault();
